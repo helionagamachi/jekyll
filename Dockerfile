@@ -19,6 +19,9 @@ RUN groupadd -g $gid developer && \
   # allow the developer user use sudo without a password
 echo "developer ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+# all the RUN commands will be run with this user, also sets the default user
+USER developer
+
 # create the directory that will be used on the mount
 RUN mkdir /home/developer/app
 
