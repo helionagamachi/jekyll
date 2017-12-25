@@ -1,6 +1,11 @@
 FROM ruby:2.4.2
 
-RUN apt-get update && apt-get install -y sudo
+RUN apt-get -qq update && \
+  apt-get install -qq -y sudo jq python-dev python-pip && \
+  pip install awscli && \
+  apt-get remove --purge -qq -y python-dev && \
+  apt-get -qq -y autoremove
+
 
 # Add a new user to have development workflow on a non root user, that way the files that are
 # created inside the container on a directory mounted via the -v option will belong to the right
