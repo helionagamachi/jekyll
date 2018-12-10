@@ -26,7 +26,7 @@ echo "developer ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 # all the RUN commands will be run with this user, also sets the default user
 USER developer
 
-RUN gem install jekyll -v '3.6.2'
+RUN gem install jekyll -v '3.8.5'
 
 # create the directory that will be used on the mount
 RUN mkdir /home/developer/app
